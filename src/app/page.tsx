@@ -1,17 +1,41 @@
 "use client"
 
-import { useState, useEffect } from 'react'
-import { Calendar, Users, Settings, CreditCard, LayoutDashboard, Plus, Search, ChevronLeft, ChevronRight, Eye, EyeOff, Trash2, User, Phone, Mail, Clock, LogOut, Bell, UserCircle, Brain, X, FileText, TrendingUp, StickyNote, Edit, LineChart, ArrowUp, Crown, Menu } from 'lucide-react'
-import { createClient } from '@supabase/supabase-js'
-
-// Criar client do Supabase APENAS dentro do componente client
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
+import { useState, useEffect } from "react"
+import {
+  Calendar,
+  Users,
+  Settings,
+  CreditCard,
+  LayoutDashboard,
+  Plus,
+  Search,
+  ChevronLeft,
+  ChevronRight,
+  Eye,
+  EyeOff,
+  Trash2,
+  User,
+  Phone,
+  Mail,
+  Clock,
+  LogOut,
+  Bell,
+  UserCircle,
+  Brain,
+  X,
+  FileText,
+  TrendingUp,
+  StickyNote,
+  Edit,
+  LineChart,
+  ArrowUp,
+  Crown,
+  Menu
+} from "lucide-react"
+import { createClient } from "@supabase/supabase-js"
 
 // Tipos de planos
-type PlanType = 'start' | 'pro' | 'infinity'
+type PlanType = "start" | "pro" | "infinity"
 
 interface Plan {
   id: PlanType
@@ -19,7 +43,7 @@ interface Plan {
   price: number
   features: {
     support: string
-    maxClients: number | 'unlimited'
+    maxClients: number | "unlimited"
     scheduling: boolean
     reminders: boolean
     templates: boolean
@@ -30,11 +54,11 @@ interface Plan {
 // Definição dos planos
 const plans: Record<PlanType, Plan> = {
   start: {
-    id: 'start',
-    name: 'Plano Start',
-    price: 47.00,
+    id: "start",
+    name: "Plano Start",
+    price: 47.0,
     features: {
-      support: 'Horário comercial (10h-18h)',
+      support: "Horário comercial (10h-18h)",
       maxClients: 15,
       scheduling: true,
       reminders: false,
@@ -43,11 +67,11 @@ const plans: Record<PlanType, Plan> = {
     }
   },
   pro: {
-    id: 'pro',
-    name: 'Plano Pro',
-    price: 97.00,
+    id: "pro",
+    name: "Plano Pro",
+    price: 97.0,
     features: {
-      support: 'Suporte 24 horas',
+      support: "Suporte 24 horas",
       maxClients: 65,
       scheduling: true,
       reminders: true,
@@ -56,12 +80,12 @@ const plans: Record<PlanType, Plan> = {
     }
   },
   infinity: {
-    id: 'infinity',
-    name: 'Plano Infinity',
-    price: 197.00,
+    id: "infinity",
+    name: "Plano Infinity",
+    price: 197.0,
     features: {
-      support: 'Suporte 24h com prioridade',
-      maxClients: 'unlimited',
+      support: "Suporte 24h com prioridade",
+      maxClients: "unlimited",
       scheduling: true,
       reminders: true,
       templates: true,
@@ -82,4 +106,17 @@ interface Client {
   birthDate: string
   mainProblem: string
   createdAt: string
+}
+
+export default function Home() {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
+
+  return (
+    <div>
+      Home
+    </div>
+  )
 }
